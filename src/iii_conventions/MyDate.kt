@@ -8,7 +8,7 @@ data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int) : Comparab
         val calendar2 = Calendar.getInstance();
         calendar1.set(this.year, this.month, this.dayOfMonth)
         calendar2.set(other.year, other.month, other.dayOfMonth)
-        return (calendar1.timeInMillis - calendar2.timeInMillis).toInt()
+        return ((calendar1.timeInMillis - calendar2.timeInMillis)/1000).toInt()
     }
 }
 
@@ -25,3 +25,6 @@ class DateRange(val start: MyDate, val endInclusive: MyDate) {
         return start < item && endInclusive > item
     }
 }
+//
+//class DateRange(override val start: MyDate, override val endInclusive: MyDate) : ClosedRange<MyDate> {
+//}
